@@ -1,0 +1,116 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/chat_interface.css">
+    <link rel="stylesheet" type="text/css" href="static/css/article.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans:300|Oxygen|Material+Icons" rel="stylesheet">
+	<title>Chatbot FrontendS</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="container">
+    <br/>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="chat_window">
+                <div class="top_menu">
+                    <div class="title" id="title">Chat Tittle</div>
+                </div>
+                <ul class="messages"></ul>
+                <div class="bottom_wrapper clearfix">
+                    <div class="message_input_wrapper">
+                        <input id="msg_input" class="message_input" placeholder="Say Hi to begin chat..." />
+                    </div>
+                    <div class="send_message">
+                        <div class="icon">
+                            <div class="text" style="color:black">Send</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="message_template">
+                <li class="message">
+                    <div class="avatar f_avatar"></div>
+                    <div class="text_wrapper">
+                        <div class="text"></div>
+                        <div class="timestamp"></div>
+                    </div>
+                </li>
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-md-4">
+            <div class="chat_window" style="background-color: white">
+                <div class="top_menu">
+                    <div class="title">Help</div>
+                </div>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Sample Help text</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>Try saying, </p>
+                                <ul>
+                                    <li>Do something</li>
+                                    <li>hello</li>
+                                    <li>What is your name?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTen">Lorem ipsum</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTen" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>Try saying, </p>
+                                <ul>
+                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+                                <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEleven">Lorem ipsum</a>
+                            </h4>
+                        </div>
+                        <div id="collapseEleven" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 20px"><a href="/button_link" class="btn btn-info custom-button-width .navbar-right logout" role="button">Button</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+  <script type="text/javascript">
+
+  </script>
+      <script src="static/js/main.js"></script>
+</footer>
+</html>
