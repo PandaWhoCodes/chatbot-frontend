@@ -35,7 +35,7 @@ function renderMessageToScreen(args) {
 
 	// animations
 	setTimeout(function () {
-		return message.addClass('appeared');
+		message.addClass('appeared');
 	}, 0);
 	messagesContainer.animate({ scrollTop: messagesContainer.prop('scrollHeight') }, 300);
 }
@@ -61,3 +61,42 @@ function showBotMessage(message, datetime) {
 		message_side: 'left',
 	});
 }
+
+/**
+ * Get input from user and show it on screen on button click.
+ */
+$('#send_button').on('click', function (e) {
+	// get and show message and reset input
+	showUserMessage($('#msg_input').val());
+	$('#msg_input').val('');
+
+	// show bot message
+	setTimeout(function () {
+		showBotMessage(randomstring());
+	}, 300);
+});
+
+/**
+ * Returns a random string. Just to specify bot message to the user.
+ */
+function randomstring(length = 20) {
+	let output = '';
+
+	// magic function
+	var randomchar = function () {
+		var n = Math.floor(Math.random() * 62);
+		if (n < 10) return n;
+		if (n < 36) return String.fromCharCode(n + 55);
+		return String.fromCharCode(n + 61);
+	};
+
+	while (output.length < length) output += randomchar();
+	return output;
+}
+
+/**
+ * Set initial bot message to the screen for the user.
+ */
+$(window).on('load', function () {
+	showBotMessage('Hello there! Type in a message.');
+});
