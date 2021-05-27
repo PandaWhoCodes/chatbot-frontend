@@ -1,59 +1,63 @@
-var Message;
-$messages = $('.messages');
-Message = function (arg) {
-	(this.text = arg.text), (this.message_side = arg.message_side), (this.time = arg.time);
-	this.draw = (function (_this) {
-		return function () {
-			var $message;
-			$message = $($('.message_template').clone().html());
-			$message.addClass(_this.message_side).find('.text').html(addBr(_this.text));
-			$message.addClass(_this.message_side).find('.timestamp').html(_this.time);
-			$('.messages').append($message);
-			return setTimeout(function () {
-				return $message.addClass('appeared');
-			}, 0);
-		};
-	})(this);
-	return this;
-};
-function addBr(text) {
-	//console.log("text was: "+text)
-	newText = text.replace(/\n/g, '<br />');
-	newText = newText.replace(/\\n/g, '<br />'); //for \n from dialogflow
-	//console.log("text is: "+text)
-	return newText;
-}
-
-function changeTitle(title) {
-	document.getElementById('title').innerHTML = title;
-}
-
+/**
+ * Returns the current datetime for the message creation.
+ */
 function getCurrentTimestamp() {
-	// var d=new Date(c["timestamp"][0],c["timestamp"][1],c["timestamp"][2],c["timestamp"][3],c["timestamp"][4],c["timestamp"][5],c["timestamp"][6]);
-	var d = new Date();
-	return d;
+	return new Date();
 }
 
-function showUserMessage(msg, d) {
-	var options = { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-	//console.log("in showUserMessage");
-	message = new Message({
-		text: msg,
-		time: d.toLocaleString('en-IN', options),
+/**
+ * Renders a message on the chat screen based on the given arguments.
+ * This is called from the `showUserMessage` and `showBotMessage`.
+ */
+function renderMessageToScreen(args) {
+	// local variables
+	let displayDate = (args.time || getCurrentTimestamp()).toLocaleString('en-IN', {
+		month: 'short',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+	});
+	let messagesContainer = $('.messages');
+
+	// init element
+	let message = $(`
+	<li class="message ${args.message_side}">
+		<div class="avatar"></div>
+		<div class="text_wrapper">
+			<div class="text">${args.text}</div>
+			<div class="timestamp">${displayDate}</div>
+		</div>
+	</li>
+	`);
+
+	// add to parent
+	messagesContainer.append(message);
+
+	// animations
+	setTimeout(function () {
+		return message.addClass('appeared');
+	}, 0);
+	messagesContainer.animate({ scrollTop: messagesContainer.prop('scrollHeight') }, 300);
+}
+
+/**
+ * Displays the user message on the chat screen. This is the right side message.
+ */
+function showUserMessage(message, datetime) {
+	renderMessageToScreen({
+		text: message,
+		time: datetime,
 		message_side: 'right',
 	});
-	message.draw();
-	$messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
-	$('#msg_input').val('');
 }
-function showBotMessage(msg, d) {
-	var options = { month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-	//console.log("in showBotMessage");
-	message = new Message({
-		text: msg,
-		time: d.toLocaleString('en-IN', options),
+
+/**
+ * Displays the chatbot message on the chat screen. This is the left side message.
+ */
+function showBotMessage(message, datetime) {
+	renderMessageToScreen({
+		text: message,
+		time: datetime,
 		message_side: 'left',
 	});
-	message.draw();
-	$messages.animate({ scrollTop: $messages.prop('scrollHeight') }, 300);
 }
