@@ -22,112 +22,76 @@
 </head>
 
 <body>
+
 	<div class="container">
-		<br />
+
 		<div class="row">
+
+			<!-- right side content -->
 			<div class="col-md-8">
+
 				<div class="chat_window">
+
 					<div class="top_menu">
-						<div class="title" id="title">Chat Tittle</div>
+						<div class="title">ChatBot - Jarvis</div>
 					</div>
+
+					<!-- dynamically rendered -->
 					<ul class="messages"></ul>
-					<div class="bottom_wrapper clearfix">
-						<div class="message_input_wrapper">
-							<input id="msg_input" class="message_input" placeholder="Say Hi to begin chat..." />
-						</div>
-						<div class="send_message">
-							<div class="icon">
-								<div class="text" style="color:black">Send</div>
-							</div>
-						</div>
+
+					<!-- input -->
+					<div class="bottom_wrapper">
+						<input id="msg_input" placeholder="Say Hi to begin chat..." />
+						<div class="app_button_1">Send</div>
 					</div>
+
 				</div>
-				<div class="message_template">
-					<li class="message">
-						<div class="avatar f_avatar"></div>
-						<div class="text_wrapper">
-							<div class="text"></div>
-							<div class="timestamp"></div>
-						</div>
-					</li>
-				</div>
-				<br />
-				<br />
+
 			</div>
+
+			<!-- left side content -->
 			<div class="col-md-4">
-				<div class="chat_window" style="background-color: white">
+				<div class="chat_window">
+
 					<div class="top_menu">
 						<div class="title">Help</div>
 					</div>
+
+					<!-- help container -->
 					<div class="panel-group" id="accordion">
+
+						<!-- help - 1 -->
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-										href="#collapseOne">Sample Help text</a>
+										href="#collapse1">Lorem ipsum</a>
 								</h4>
 							</div>
-							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="panel-body">
-									<p>Try saying, </p>
-									<ul>
-										<li>Do something</li>
-										<li>hello</li>
-										<li>What is your name?</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-										href="#collapseTen">Lorem ipsum</a>
-								</h4>
-							</div>
-							<div id="collapseTen" class="panel-collapse collapse in">
-								<div class="panel-body">
-									<p>Try saying, </p>
-									<ul>
-										<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur</li>
-										<li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum</li>
-								</div>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-										href="#collapseEleven">Lorem ipsum</a>
-								</h4>
-							</div>
-							<div id="collapseEleven" class="panel-collapse collapse in">
+							<div id="collapse1" class="panel-collapse collapse in">
 								<div class="panel-body">
 									Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 									mollit anim id est laborum
 								</div>
 							</div>
 						</div>
+
 					</div>
-					<div style="margin-left: 20px"><a href="/button_link"
-							class="btn btn-info custom-button-width .navbar-right logout" role="button">Button</a></div>
+
 				</div>
 			</div>
+
 		</div>
 
-		<!-- vendor script files -->
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
-		</script>
+	</div>
 
-		<!-- custom scripts -->
-		<script src="static/main.js"></script>
+	<!-- vendor script files -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	</script>
 
+	<!-- custom scripts -->
+	<script src="static/main.js"></script>
 </body>
 
 </html>
