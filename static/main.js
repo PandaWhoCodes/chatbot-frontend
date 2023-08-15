@@ -40,6 +40,21 @@ function renderMessageToScreen(args) {
 	messagesContainer.animate({ scrollTop: messagesContainer.prop('scrollHeight') }, 300);
 }
 
+/* Sends a message when the 'Enter' key is pressed. If shift+enter is pressed, a new line is created.
+ */
+$(document).ready(function() {
+    $('#msg_input').keydown(function(e) {
+        // Check for 'Enter' key without 'Shift'
+        if (e.key === 'Enter') {
+            // Prevent default behaviour (New line or submission)
+            e.preventDefault();
+
+            // Trigger the click event on 'Send' button
+            $('#send_button').click();
+        }
+    });
+});
+
 /**
  * Displays the user message on the chat screen. This is the right side message.
  */
