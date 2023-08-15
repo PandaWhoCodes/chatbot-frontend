@@ -40,6 +40,20 @@ function renderMessageToScreen(args) {
 	messagesContainer.animate({ scrollTop: messagesContainer.prop('scrollHeight') }, 300);
 }
 
+/* Sends a message when the 'Enter' key is pressed.
+ */
+$(document).ready(function() {
+    $('#msg_input').keydown(function(e) {
+        // Check for 'Enter' key
+        if (e.key === 'Enter') {
+            // Prevent default behaviour of enter key
+            e.preventDefault();
+			// Trigger send button click event
+            $('#send_button').click();
+        }
+    });
+});
+
 /**
  * Displays the user message on the chat screen. This is the right side message.
  */
