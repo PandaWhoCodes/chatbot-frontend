@@ -40,16 +40,15 @@ function renderMessageToScreen(args) {
 	messagesContainer.animate({ scrollTop: messagesContainer.prop('scrollHeight') }, 300);
 }
 
-/* Sends a message when the 'Enter' key is pressed. If shift+enter is pressed, a new line is created.
+/* Sends a message when the 'Enter' key is pressed.
  */
 $(document).ready(function() {
     $('#msg_input').keydown(function(e) {
-        // Check for 'Enter' key without 'Shift'
+        // Check for 'Enter' key
         if (e.key === 'Enter') {
-            // Prevent default behaviour (New line or submission)
+            // Prevent default behaviour of enter key
             e.preventDefault();
-
-            // Trigger the click event on 'Send' button
+			// Trigger send button click event
             $('#send_button').click();
         }
     });
