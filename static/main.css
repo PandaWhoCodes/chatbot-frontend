@@ -1,3 +1,11 @@
+:root {
+	--border-radius: 10px;
+	--box-shadow-light: 0 1px 30px rgba(0, 0, 0, 0.1);
+	--box-shadow-dark: 0 10px 20px rgba(0, 0, 0, 0.15);
+	--transition: all 0.5s linear;
+	--avatar-size: 40px;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -7,18 +15,14 @@ body {
 	font-family: 'Calibri', 'Roboto', sans-serif;
 }
 
-.row.padded_row,
-.row.padded_row > div {
+.padded_row {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
 
-/* layout and common global classes */
-/* ---------------------------------------------------------------------- */
-
 .chat_window {
-	border-radius: 10px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow-dark);
 	background-color: #f8f8f8;
 	overflow: hidden;
 }
@@ -26,7 +30,7 @@ body {
 .top_menu {
 	background-color: #fff;
 	padding: 13px 0px;
-	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--box-shadow-light);
 }
 
 .top_menu .title {
@@ -34,9 +38,6 @@ body {
 	color: #337ab7;
 	font-size: 20px;
 }
-
-/* messages inside the chatbox */
-/* ---------------------------------------------------------------------- */
 
 .messages {
 	position: relative;
@@ -51,13 +52,13 @@ body {
 	clear: both;
 	overflow: hidden;
 	margin-bottom: 20px;
-	transition: all 0.5s linear;
+	transition: var(--transition);
 	opacity: 0;
 }
 
-.messages .message .avatar {
-	height: 40px;
-	width: 40px;
+.avatar {
+	height: var(--avatar-size);
+	width: var(--avatar-size);
 	background-size: cover !important;
 	border-radius: 50%;
 	display: inline-block;
@@ -74,7 +75,7 @@ body {
 	opacity: 1;
 }
 
-.messages .message .text_wrapper {
+.text_wrapper {
 	display: inline-block;
 	padding: 20px;
 	border-radius: 6px;
@@ -82,8 +83,8 @@ body {
 	position: relative;
 }
 
-.messages .message .text_wrapper::after,
-.messages .message .text_wrapper:before {
+.text_wrapper::after,
+.text_wrapper::before {
 	top: 18px;
 	border: solid transparent;
 	content: ' ';
@@ -93,17 +94,15 @@ body {
 	pointer-events: none;
 }
 
-.messages .message .text_wrapper::after {
+.text_wrapper::after {
 	border-width: 13px;
 	margin-top: 0px;
 }
 
-.messages .message .text_wrapper::before {
+.text_wrapper::before {
 	border-width: 15px;
 	margin-top: -2px;
 }
-
-/* bot message */
 
 .messages .message.left .avatar {
 	float: left;
@@ -125,8 +124,6 @@ body {
 	color: #b0742f;
 }
 
-/* user message */
-
 .messages .message.right .avatar {
 	float: right;
 	background: url('./img/guy.jpg');
@@ -147,8 +144,6 @@ body {
 .messages .message.right .timestamp {
 	color: #1a5770;
 }
-
-/* text inpur from user */
 
 .bottom_wrapper {
 	background-color: #fff;
@@ -172,15 +167,11 @@ body {
 	border-radius: 50px;
 	cursor: pointer;
 	padding: 12px;
-
 	color: #fff;
 	font-size: 18px;
 	font-weight: 300;
 	text-align: center;
 }
-
-/* faq section | right side */
-/* ---------------------------------------------------------------------- */
 
 .panel-group {
 	margin: 20px;
@@ -193,18 +184,9 @@ body {
 	font-size: 18px;
 	line-height: 22px;
 	transition: all 0.2s linear;
-
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
 	transform: rotate(-90deg);
 }
 
 .panel-heading [data-toggle='collapse'].collapsed:after {
-	-webkit-transform: rotate(90deg);
-	-moz-transform: rotate(90deg);
-	-ms-transform: rotate(90deg);
-	-o-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
